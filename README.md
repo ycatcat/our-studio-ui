@@ -1,21 +1,22 @@
-# web-ui
-
-> A Vue.js project
-
-## Build Setup
-
-``` bash
-# install dependencies
-npm install
-
-# serve with hot reload at localhost:8080
-npm run dev
-
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
-```
-
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+这是一个前端项目文件
+ + 作为一个合格的前端人员，你有义务学习以下技能
+      - html5+css3
+      - js（包括ES6新标准）
+      - vue.js
+      - ajax技术
+      - vue-axios
+      - vue-router路由
+      - element-ui的使用
+   
+ + 项目文件结构说明
+      - build  -->  可以改变端口号
+      - config、node_modules --> 配置文件
+      - src
+           - assets --> 存放图片
+           - components --> 存放组件
+           - router --> 路由文件
+           - App.vue --> 根组件
+           - main.js --> js入口文件
+      - static --> 存放静态文件
+      - index.html --> 入口文件
+      - package.josn --> 配置信息
