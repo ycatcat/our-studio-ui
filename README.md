@@ -15,6 +15,8 @@
       - php
       - java
  + 项目文件结构说明
+ 
+ 
       - build  -->  可以改变端口号
       - config、node_modules --> 配置文件
       - src
