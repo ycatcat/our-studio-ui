@@ -8,6 +8,12 @@
       - vue-router路由
       - element-ui的使用
    
+   
+ + 作为一个后端人员，你有义务学习一下技能
+      - MySQL
+      - node.js
+      - php
+      - java
  + 项目文件结构说明
       - build  -->  可以改变端口号
       - config、node_modules --> 配置文件
