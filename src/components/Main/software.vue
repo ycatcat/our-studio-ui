@@ -145,6 +145,9 @@
         })
         .catch(error => {
           //请求失败
+          this.$nextTick(() => {
+            loadingInstance.close();
+          });
           this.open4();
           console.log(error);
         });
