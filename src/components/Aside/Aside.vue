@@ -1,0 +1,56 @@
+<template>
+  <div>
+    <el-menu
+      default-active="userinfo"
+      class="el-menu-vertical-demo"
+      @open="handleOpen"
+      @close="handleClose"
+      background-color="#545c64"
+      text-color="#fff"
+      active-text-color="#ffd04b"
+      router="true">
+      <el-menu-item index="userinfo">
+        <i class="el-icon-menu"></i>
+        <span slot="title">用户管理</span>
+      </el-menu-item>
+      <el-menu-item index="software">
+        <i class="el-icon-menu"></i>
+        <span slot="title">推荐软件</span>
+      </el-menu-item>
+      <el-menu-item index="essay" disabled>
+        <i class="el-icon-menu"></i>
+        <span slot="title">分享文章</span>
+      </el-menu-item>
+      <el-menu-item index="video" disabled>
+        <i class="el-icon-menu"></i>
+        <span slot="title">分享视频</span>
+      </el-menu-item>
+      <el-menu-item index="award" disabled>
+        <i class="el-icon-menu"></i>
+        <span slot="title">获奖信息</span>
+      </el-menu-item>
+    </el-menu>
+  </div>
+</template>
+
+<script>
+  export default {
+    name: "Aside",
+    data(){
+      return{
+      }
+    },
+    methods: {
+      handleOpen(key, keyPath) {
+        console.log(key, keyPath);
+      },
+      handleClose(key, keyPath) {
+        console.log(key, keyPath);
+      }
+    }
+  }
+</script>
+
+<style scoped>
+  ul{height: 900px;}
+</style>
