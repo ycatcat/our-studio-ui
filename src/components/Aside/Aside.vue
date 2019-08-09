@@ -10,23 +10,23 @@
       active-text-color="#ffd04b"
       :router="r">
       <el-menu-item index="userinfo">
-        <i class="el-icon-menu"></i>
+        <i class="el-icon-user"></i>
         <span slot="title">用户管理</span>
       </el-menu-item>
       <el-menu-item index="software">
-        <i class="el-icon-menu"></i>
+        <i class="el-icon-monitor"></i>
         <span slot="title">推荐软件</span>
       </el-menu-item>
       <el-menu-item index="essay" >
-        <i class="el-icon-menu"></i>
+        <i class="el-icon-reading"></i>
         <span slot="title">分享文章</span>
       </el-menu-item>
       <el-menu-item index="video" >
-        <i class="el-icon-menu"></i>
+        <i class="el-icon-film"></i>
         <span slot="title">分享视频</span>
       </el-menu-item>
       <el-menu-item index="award" >
-        <i class="el-icon-menu"></i>
+        <i class="el-icon-trophy"></i>
         <span slot="title">获奖信息</span>
       </el-menu-item>
     </el-menu>
