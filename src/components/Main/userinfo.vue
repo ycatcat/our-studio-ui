@@ -147,6 +147,9 @@
       })
         .catch(error => {
           //请求失败
+          this.$nextTick(() => { // 以服务的方式调用的 Loading 需要异步关闭
+            loadingInstance.close();
+          });
           this.open4();
           console.log(error);
         });
