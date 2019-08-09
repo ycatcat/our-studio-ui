@@ -12,6 +12,10 @@
         prop="name">
       </el-table-column>
       <el-table-column
+        label="发布时间"
+        prop="release_time">
+      </el-table-column>
+      <el-table-column
         label="软件介绍"
         prop="description">
       </el-table-column>
