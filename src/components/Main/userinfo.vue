@@ -102,7 +102,23 @@
       },access(i){
         this.dialogFormVisible = false;
         document.getElementById(""+i).submit();
-      }
+      },
+      open2() {
+        this.$message({
+          center:true,
+          showClose: false,
+          message: '加载成功',
+          type: 'success'
+        });
+      },
+      open4() {
+        this.$message({
+          center:true,
+          showClose: false,
+          message: '加载失败',
+          type: 'error'
+        });
+      },
 
     },
     beforeUpdate() {
@@ -114,15 +130,26 @@
     },
     created() {
       let loadingInstance = this.$loading({text:"数据加载中",fullscreen:false,});
-      this.axios.get('http://49.234.9.206/Gaindata/get_selet.php?list=userinfo').then(body => {
-        this.list = body.data;
+      this.axios.get('http://49.234.9.206/Gaindata/selet_mysql.php?list=userinfo')
+        .then(body => {//请求成功
+        if(body.data.status_code == 1009){//状态码正常
+          this.list = body.data.datas;
+          this.open2();
+        }else {//状态码异常
+          this.open4();
+        }
         for(var i=0;i<this.list.length;i++){
           this.$set(this.list[i],'visible',false);
         }
         this.$nextTick(() => { // 以服务的方式调用的 Loading 需要异步关闭
           loadingInstance.close();
-        });
+        })
       })
+        .catch(error => {
+          //请求失败
+          this.open4();
+          console.log(error);
+        });
     },
   }
 </script>

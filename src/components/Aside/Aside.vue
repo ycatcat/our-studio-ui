@@ -8,7 +8,7 @@
       background-color="#545c64"
       text-color="#fff"
       active-text-color="#ffd04b"
-      router="true">
+      :router="r">
       <el-menu-item index="userinfo">
         <i class="el-icon-menu"></i>
         <span slot="title">用户管理</span>
@@ -38,6 +38,7 @@
     name: "Aside",
     data(){
       return{
+        r:true
       }
     },
     methods: {
