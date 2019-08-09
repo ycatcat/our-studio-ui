@@ -8,16 +8,17 @@ import Element from 'element-ui'
 import '../node_modules/element-ui/lib/theme-chalk/index.css'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
+import $ from "jquery"
 
 
-Vue.config.productionTip = false
-Vue.use(Element)
-Vue.use(VueRouter)
-Vue.use(VueAxios,axios)
+Vue.config.productionTip = false;
+Vue.use(Element);
+Vue.use(VueRouter);
+Vue.use(VueAxios,axios);
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
   components: { App },
   template: '<App/>'
-})
+});
