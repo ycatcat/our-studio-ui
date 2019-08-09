@@ -17,15 +17,15 @@
         <i class="el-icon-menu"></i>
         <span slot="title">推荐软件</span>
       </el-menu-item>
-      <el-menu-item index="essay" disabled>
+      <el-menu-item index="essay" >
         <i class="el-icon-menu"></i>
         <span slot="title">分享文章</span>
       </el-menu-item>
-      <el-menu-item index="video" disabled>
+      <el-menu-item index="video" >
         <i class="el-icon-menu"></i>
         <span slot="title">分享视频</span>
       </el-menu-item>
-      <el-menu-item index="award" disabled>
+      <el-menu-item index="award" >
         <i class="el-icon-menu"></i>
         <span slot="title">获奖信息</span>
       </el-menu-item>
