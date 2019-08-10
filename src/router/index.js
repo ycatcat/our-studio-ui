@@ -11,6 +11,11 @@ Vue.use(Router);
 export default new Router({
   routes: [
     {
+      path: '/',
+      name: 'userinfo',
+      component: userinfo
+    },
+    {
       path: '/userinfo',
       name: 'userinfo',
       component: userinfo
