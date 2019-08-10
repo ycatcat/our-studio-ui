@@ -1,5 +1,5 @@
 <template>
-  <div id="video">
+  <div id="award">
     <el-table
       :data="list.filter(data => !search || (data.name == search) || (data.ID == search) || (data.access == search)).slice(ye*10-10,ye*10)"
       style="width: 100%">
@@ -8,36 +8,20 @@
         prop="ID">
       </el-table-column>
       <el-table-column
-        label="标题"
-        prop="title">
+        label="获奖信息"
+        prop="awards">
       </el-table-column>
       <el-table-column
-        label="简介"
-        prop="abstract">
+        label="获奖人"
+        prop="prizewinner">
       </el-table-column>
       <el-table-column
-        label="视频文件路径"
-        prop="video_file">
+        label="获奖日期"
+        prop="data_of_award">
       </el-table-column>
       <el-table-column
-        label="发布者"
-        prop="promulgator">
-      </el-table-column>
-      <el-table-column
-        label="发布时间"
-        prop="release_time">
-      </el-table-column>
-      <el-table-column
-        label="阅读量"
-        prop="reading_quantity">
-      </el-table-column>
-      <el-table-column
-        label="下载量"
-        prop="downloads">
-      </el-table-column>
-      <el-table-column
-        label="权限"
-        prop="access">
+        label="图片"
+        prop="img">
       </el-table-column>
       <el-table-column
         align="right">
@@ -78,7 +62,7 @@
 <script>
   import jiaohu from "../jiaohu"
   export default {
-    name: "video",
+    name: "theAward",
     data(){
       return{
         list:[],
@@ -134,7 +118,7 @@
     },
     created() {
       let loadingInstance = this.$loading({text:"数据加载中",fullscreen:false,});
-      this.axios.get('http://49.234.9.206/Gaindata/selet_mysql.php?list=video')
+      this.axios.get('http://49.234.9.206/Gaindata/selet_mysql.php?list=awards')
         .then(body => {//请求成功
           if(body.data.status_code == 1009){//状态码正常
             this.list = body.data.datas;

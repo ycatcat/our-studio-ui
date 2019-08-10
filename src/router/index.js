@@ -1,10 +1,10 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import userinfo from '../components/Main/userinfo'
-import software from '../components/Main/software'
-import essay from '../components/Main/essay'
-import video from '../components/Main/video'
-import award from '../components/Main/award'
+import theUserInfo from '../components/Main/the-userInfo'
+import theSoftware from '../components/Main/the-software'
+import theEssay from '../components/Main/the-essay'
+import theVideo from '../components/Main/the-video'
+import theAward from '../components/Main/the-award'
 
 Vue.use(Router);
 
@@ -12,28 +12,28 @@ export default new Router({
   routes: [
     {
       path: '/',
-      component: userinfo
+      component: theUserInfo
     },
     {
-      path: '/userinfo',
-      name: 'userinfo',
-      component: userinfo
+      path: '/the-userInfo',
+      name: 'theUserInfo',
+      component: theUserInfo
     },{
-      path: '/software',
-      name: 'software',
-      component: software
+      path: '/the-software',
+      name: 'theSoftware',
+      component: theSoftware
     },{
-      path: '/essay',
-      name: 'essay',
-      component: essay
+      path: '/the-essay',
+      name: 'theEssay',
+      component: theEssay
     },{
-      path: '/video',
-      name: 'video',
-      component: video
+      path: '/the-video',
+      name: 'theVideo',
+      component: theVideo
     },{
-      path: '/award',
-      name: 'award',
-      component: award
+      path: '/the-award',
+      name: 'theAward',
+      component: theAward
     }
   ]
 })

@@ -10,7 +10,7 @@
 </template>
 <script>
   import Aside from "./components/Aside/Aside"
-  import Main from "./components/Main/userinfo"
+  import Main from "./components/Main/the-userInfo"
   import Footer from "./components/Footer/Footer"
 export default {
   name: 'App',

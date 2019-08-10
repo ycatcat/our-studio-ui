@@ -78,7 +78,7 @@
 <script>
   import jiaohu from "../jiaohu"
   export default {
-    name: "essay",
+    name: "theEssay",
     data(){
       return{
         list:[],
