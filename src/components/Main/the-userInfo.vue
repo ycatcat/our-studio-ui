@@ -103,19 +103,19 @@
         this.dialogFormVisible = false;
         document.getElementById(""+i).submit();
       },
-      open2() {
+      open2(hint) {
         this.$message({
           center:true,
           showClose: false,
-          message: '加载成功',
+          message: hint,
           type: 'success'
         });
       },
-      open4() {
+      open4(hint) {
         this.$message({
           center:true,
           showClose: false,
-          message: '加载失败',
+          message: hint,
           type: 'error'
         });
       },
@@ -134,9 +134,9 @@
         .then(body => {//请求成功
         if(body.data.status_code == 1009){//状态码正常
           this.list = body.data.datas;
-          this.open2();
+          this.open2("加载成功");
         }else {//状态码异常
-          this.open4();
+          this.open4("加载失败");
         }
         for(var i=0;i<this.list.length;i++){
           this.$set(this.list[i],'visible',false);
@@ -151,7 +151,7 @@
           this.$nextTick(() => {
             loadingInstance.close();
           });
-          this.open4();
+          this.open4("加载失败");
           console.log(error);
         });
     },

@@ -46,8 +46,8 @@
     },
     mounted () {
       //获取当前路径并且给参数赋值
-      let href = window.location.href
-      this.activeIndex = href.split('/#')[1]
+      let href = window.location.href;
+      this.activeIndex = href.split('/#')[1];
       if(this.activeIndex === "/"){
         this.activeIndex = "/the-userInfo";
       }
