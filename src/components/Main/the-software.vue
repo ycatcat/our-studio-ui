@@ -1,5 +1,5 @@
 <template>
-  <div id="video">
+  <div id="software">
     <el-table
       :data="list.filter(data => !search || (data.name == search) || (data.ID == search) || (data.access == search)).slice(ye*10-10,ye*10)"
       style="width: 100%">
@@ -8,28 +8,28 @@
         prop="ID">
       </el-table-column>
       <el-table-column
-        label="标题"
-        prop="title">
-      </el-table-column>
-      <el-table-column
-        label="简介"
-        prop="abstract">
-      </el-table-column>
-      <el-table-column
-        label="视频文件路径"
-        prop="video_file">
-      </el-table-column>
-      <el-table-column
-        label="发布者"
-        prop="promulgator">
+        label="软件名称"
+        prop="name">
       </el-table-column>
       <el-table-column
         label="发布时间"
         prop="release_time">
       </el-table-column>
       <el-table-column
-        label="阅读量"
-        prop="reading_quantity">
+        label="软件介绍"
+        prop="description">
+      </el-table-column>
+      <el-table-column
+        label="下载链接"
+        prop="Download_link">
+      </el-table-column>
+      <el-table-column
+        label="破解安装教程"
+        prop="cit">
+      </el-table-column>
+      <el-table-column
+        label="使用教程"
+        prop="tutorial">
       </el-table-column>
       <el-table-column
         label="下载量"
@@ -73,12 +73,10 @@
     <p v-if="endye" style="color: #ada9af; height: 50px; line-height:50px;">没有更多啦！</p>
   </div>
 </template>
-
-
 <script>
   import jiaohu from "../jiaohu"
   export default {
-    name: "video",
+    name: "theSoftware",
     data(){
       return{
         list:[],
@@ -134,7 +132,7 @@
     },
     created() {
       let loadingInstance = this.$loading({text:"数据加载中",fullscreen:false,});
-      this.axios.get('http://49.234.9.206/Gaindata/selet_mysql.php?list=video')
+      this.axios.get('http://49.234.9.206/Gaindata/selet_mysql.php?list=software')
         .then(body => {//请求成功
           if(body.data.status_code == 1009){//状态码正常
             this.list = body.data.datas;
@@ -162,5 +160,4 @@
 </script>
 
 <style scoped>
-
 </style>

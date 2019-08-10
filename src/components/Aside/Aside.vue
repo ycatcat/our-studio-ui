@@ -9,23 +9,23 @@
       text-color="#fff"
       active-text-color="#ffd04b"
       :router="r">
-      <el-menu-item index="/userinfo">
+      <el-menu-item index="/the-userInfo">
         <i class="el-icon-user"></i>
         <span slot="title">用户管理</span>
       </el-menu-item>
-      <el-menu-item index="/software">
+      <el-menu-item index="/the-software">
         <i class="el-icon-monitor"></i>
         <span slot="title">推荐软件</span>
       </el-menu-item>
-      <el-menu-item index="/essay" >
+      <el-menu-item index="/the-essay" >
         <i class="el-icon-reading"></i>
         <span slot="title">分享文章</span>
       </el-menu-item>
-      <el-menu-item index="/video" >
+      <el-menu-item index="/the-video" >
         <i class="el-icon-film"></i>
         <span slot="title">分享视频</span>
       </el-menu-item>
-      <el-menu-item index="/award" >
+      <el-menu-item index="/the-award" >
         <i class="el-icon-trophy"></i>
         <span slot="title">获奖信息</span>
       </el-menu-item>
@@ -49,7 +49,7 @@
       let href = window.location.href
       this.activeIndex = href.split('/#')[1]
       if(this.activeIndex === "/"){
-        this.activeIndex = "/userinfo";
+        this.activeIndex = "/the-userInfo";
       }
     },
     methods: {
