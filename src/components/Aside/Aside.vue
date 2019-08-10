@@ -2,7 +2,6 @@
   <div>
     <el-menu
       :default-active= "activeIndex"
-      :active ="activeIndex"
       class="el-menu-vertical-demo"
       @open="handleOpen"
       @close="handleClose"
