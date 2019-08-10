@@ -70,5 +70,7 @@
 </script>
 
 <style scoped>
-  ul{height: 900px;}
+  ul{
+    height: 900px;
+  }
 </style>

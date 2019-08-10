@@ -141,6 +141,7 @@
         for(var i=0;i<this.list.length;i++){
           this.$set(this.list[i],'visible',false);
         }
+
         this.$nextTick(() => { // 以服务的方式调用的 Loading 需要异步关闭
           loadingInstance.close();
         })
