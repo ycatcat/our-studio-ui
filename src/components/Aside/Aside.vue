@@ -41,13 +41,16 @@
     data(){
       return{
         r:true,
-        activeIndex:"/userinfo"
+        activeIndex:"/"
       }
     },
     mounted () {
       //获取当前路径并且给参数赋值
       let href = window.location.href
       this.activeIndex = href.split('/#')[1]
+      if(this.activeIndex === "/"){
+        this.activeIndex = "/userinfo";
+      }
     },
     methods: {
       handleOpen(key, keyPath) {
