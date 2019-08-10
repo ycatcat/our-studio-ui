@@ -25,7 +25,7 @@
         <i class="el-icon-film"></i>
         <span slot="title">分享视频</span>
       </el-menu-item>
-      <el-menu-item index="/the-award" >
+      <el-menu-item index="/the-awards" >
         <i class="el-icon-trophy"></i>
         <span slot="title">获奖信息</span>
       </el-menu-item>

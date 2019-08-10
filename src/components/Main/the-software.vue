@@ -92,7 +92,6 @@
       handleEdit(index, row) {
       },
       handleDelete(index, row) {
-        console.log(index, row);
       },
       end(ye){
         var i =(this.list.filter(data => !this.search || data.username.toLowerCase().includes(this.search.toLowerCase()) || data.nickname.toLowerCase().includes(this.search.toLowerCase()) || (data.ID == this.search) || (data.email == this.search))).length/10;
@@ -103,8 +102,47 @@
 
         }
       },amend(index, row){
+        //关闭“是否删除”提示
         row.visible=false;
-        //删除功能
+        //删除数据
+        this.axios.get('http://49.234.9.206/Gaindata/delete_mysql.php',{
+          params:{
+            list:"software",
+            ID:row.ID
+          }
+        })
+          .then(body => {//删除请求成功
+            if(body.data.status_code == 1011){//删除状态码正常
+              this.open2("删除数据成功");
+              //加载最新数据
+              this.axios.get('http://49.234.9.206/Gaindata/selet_mysql.php',{
+                params:{
+                  list:"software"
+                }
+              })
+                .then(body => {//加载请求成功
+                  if(body.data.status_code == 1009){//加载状态码正常
+                    this.list = body.data.datas;
+                    for(var i=0;i<this.list.length;i++){
+                      this.$set(this.list[i],'visible',false);
+                    }
+                  }
+                })
+                .catch(error => {
+                  console.log(error);
+                });
+            }else {//删除状态码异常
+              this.open4("删除数据失败");
+            }
+          })
+          .catch(error => {
+            //删除请求失败
+            this.$nextTick(() => {
+              loadingInstance.close();
+            });
+            this.open4("删除数据失败");
+            console.log(error);
+          });
       },
       open2(hint) {
         this.$message({
@@ -132,7 +170,11 @@
     },
     created() {
       let loadingInstance = this.$loading({text:"数据加载中",fullscreen:false,});
-      this.axios.get('http://49.234.9.206/Gaindata/selet_mysql.php?list=software')
+      this.axios.get('http://49.234.9.206/Gaindata/selet_mysql.php',{
+        params:{
+          list:"software"
+        }
+      })
         .then(body => {//请求成功
           if(body.data.status_code == 1009){//状态码正常
             this.list = body.data.datas;

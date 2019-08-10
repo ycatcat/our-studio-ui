@@ -130,7 +130,11 @@
     },
     created() {
       let loadingInstance = this.$loading({text:"数据加载中",fullscreen:false,});
-      this.axios.get('http://49.234.9.206/Gaindata/selet_mysql.php?list=userinfo')
+      this.axios.get('http://49.234.9.206/Gaindata/selet_mysql.php',{
+        params:{
+          list:"userinfo"
+        }
+      })
         .then(body => {//请求成功
         if(body.data.status_code == 1009){//状态码正常
           this.list = body.data.datas;

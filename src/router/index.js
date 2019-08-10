@@ -4,7 +4,7 @@ import theUserInfo from '../components/Main/the-userInfo'
 import theSoftware from '../components/Main/the-software'
 import theEssay from '../components/Main/the-essay'
 import theVideo from '../components/Main/the-video'
-import theAward from '../components/Main/the-award'
+import theAwards from '../components/Main/the-awards'
 
 Vue.use(Router);
 
@@ -31,9 +31,9 @@ export default new Router({
       name: 'theVideo',
       component: theVideo
     },{
-      path: '/the-award',
-      name: 'theAward',
-      component: theAward
+      path: '/the-awards',
+      name: 'theAwards',
+      component: theAwards
     }
   ]
 })
