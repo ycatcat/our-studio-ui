@@ -58,14 +58,15 @@
       </el-table-column>
 
     </el-table>
-    <div >
+    <!--添加表单开始-->
+    <div>
       <el-popover
         trigger="click"
         placement="right"
         title="添加内容"
       >
       <div>
-        <el-form  action="http://49.234.9.206/Gaindata/insert_awards.php" status-icon  label-width="100px" class="demo-ruleForm" style="width: 500px;">
+        <el-form  status-icon  label-width="100px" class="demo-ruleForm" style="width: 500px;">
           <el-form-item label="密码" prop="pass">
             <el-input v-model="input" type="password" autocomplete="off"></el-input>
           </el-form-item>
@@ -84,7 +85,7 @@
         <el-button class="el-add-button" type="primary" slot="reference" plain="">添加</el-button>
       </el-popover>
     </div>
-
+    <!--添加表单结束-->
 
     <p v-if="endye" style="color: #ada9af; height: 50px; line-height:50px;">没有更多啦！</p>
   </div>
@@ -109,9 +110,6 @@
         dialogFormVisible: false,
         formLabelWidth: '120px'
       }
-    },
-    change(e){
-      this.$forceUpdate();
     },
     created() {
       let loadingInstance = this.$loading({text: "数据加载中", fullscreen: false,});
@@ -156,7 +154,6 @@
           this.endye = true;
         } else {
           this.endye = false;
-
         }
       },
       open2,
@@ -178,13 +175,5 @@
   top: 220px;
   left: 225px;
 }
-.input-el-add{
-  height: 40px;
- padding-bottom: 10px;
 
-}
-.el-input-ha{
-  float: left;
-  width: 500px;
-}
 </style>
