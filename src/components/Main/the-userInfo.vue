@@ -5,7 +5,9 @@
       style="width: 100%">
       <el-table-column
         label="ID"
-        prop="ID">
+        prop="ID"
+        width="120px"
+      >
       </el-table-column>
       <el-table-column
         label="用户名"
@@ -67,6 +69,9 @@
         </template>
       </el-table-column>
     </el-table>
+    <div class="el-add-button">
+      <el-button type="primary" plain>添加按钮</el-button>
+    </div>
     <p v-if="endye" style="color: #ada9af; height: 50px; line-height:50px;">没有更多啦！</p>
   </div>
 </template>
@@ -163,4 +168,9 @@
 </script>
 
 <style scoped>
+  .el-add-button{
+    position: absolute;
+    top: 155px;
+    left: 225px;
+  }
 </style>

@@ -5,7 +5,9 @@
       style="width: 100%">
       <el-table-column
         label="ID"
-        prop="ID">
+        prop="ID"
+        width="120px"
+      >
       </el-table-column>
       <el-table-column
         label="标题"
@@ -70,13 +72,18 @@
         </template>
       </el-table-column>
     </el-table>
+    <div class="el-add-button">
+      <el-button type="primary" plain>添加按钮</el-button>
+    </div>
     <p v-if="endye" style="color: #ada9af; height: 50px; line-height:50px;">没有更多啦！</p>
   </div>
 </template>
 
 
 <script>
+
   import jiaohu from "../jiaohu"
+  import {amend, open2, open4} from "../../public/methods/adminFun";
   export default {
     name: "theEssay",
     data(){
@@ -84,108 +91,29 @@
         list:[],
         search:'',
         ye:1,
+        api:"essay",
         endye:0,
         dialogTableVisible: false,
         dialogFormVisible: false,
         formLabelWidth: '120px'
       }
     },
-    methods :{
-      handleEdit(index, row) {
-      },
-      handleDelete(index, row) {
-      },
-      end(ye){
-        var i =(this.list.filter(data => !this.search || data.username.toLowerCase().includes(this.search.toLowerCase()) || data.nickname.toLowerCase().includes(this.search.toLowerCase()) || (data.ID == this.search) || (data.email == this.search))).length/10;
-        if(ye > i){
-          this.endye = true;
-        } else {
-          this.endye = false;
-
-        }
-      },amend(index, row){
-        //关闭“是否删除”提示
-        row.visible=false;
-        //删除数据
-        this.axios.get('http://49.234.9.206/Gaindata/delete_mysql.php',{
-          params:{
-            list:"essay",
-            ID:row.ID
-          }
-        })
-          .then(body => {//删除请求成功
-            if(body.data.status_code == 1011){//删除状态码正常
-              this.open2("删除数据成功");
-              //加载最新数据
-              this.axios.get('http://49.234.9.206/Gaindata/selet_mysql.php',{
-                params:{
-                  list:"essay"
-                }
-              })
-                .then(body => {//加载请求成功
-                  if(body.data.status_code == 1009){//加载状态码正常
-                    this.list = body.data.datas;
-                    for(var i=0;i<this.list.length;i++){
-                      this.$set(this.list[i],'visible',false);
-                    }
-                  }
-                })
-                .catch(error => {
-                  console.log(error);
-                });
-            }else {//删除状态码异常
-              this.open4("删除数据失败");
-            }
-          })
-          .catch(error => {
-            //删除请求失败
-            this.$nextTick(() => {
-              loadingInstance.close();
-            });
-            this.open4("删除数据失败");
-            console.log(error);
-          });
-      },
-      open2(hint) {
-        this.$message({
-          center:true,
-          showClose: false,
-          message: hint,
-          type: 'success'
-        });
-      },
-      open4(hint) {
-        this.$message({
-          center:true,
-          showClose: false,
-          message: hint,
-          type: 'error'
-        });
-      },
-    },
-    beforeUpdate() {
-      this.end(this.ye);
-      jiaohu.$emit("len",this.list.filter(data => !this.search || (data.name == this.search) || (data.ID == this.search) || (data.access == this.search)))
-      jiaohu.$on("ye",(ye)=>{
-        this.ye = ye;
-      })
-    },
     created() {
-      let loadingInstance = this.$loading({text:"数据加载中",fullscreen:false,});
-      this.axios.get('http://49.234.9.206/Gaindata/selet_mysql.php',{
+      let loadingInstance = this.$loading({text: "数据加载中", fullscreen: false,});
+      this.axios.get('http://49.234.9.206/Gaindata/selet_mysql.php', {
         params: {
           list: "essay"
         }
       })
         .then(body => {//请求成功
-          if(body.data.status_code == 1009){//状态码正常
+          if (body.data.status_code == 1009) {//状态码正常
             this.list = body.data.datas;
             this.open2("加载成功");
-          }else {//状态码异常
+          } else {//状态码异常
             this.open4("加载失败");
           }
-          for(var i=0;i<this.list.length;i++){
-            this.$set(this.list[i],'visible',false);
+          for (var i = 0; i < this.list.length; i++) {
+            this.$set(this.list[i], 'visible', false);
           }
           this.$nextTick(() => { // 以服务的方式调用的 Loading 需要异步关闭
             loadingInstance.close();
@@ -200,9 +128,39 @@
           console.log(error);
         });
     },
+    methods : {
+
+      amend,    //删除方法
+      handleEdit(index, row) {
+      },
+      handleDelete(index, row) {
+      },
+      end(ye) {
+        var i = (this.list.filter(data => !this.search || data.username.toLowerCase().includes(this.search.toLowerCase()) || data.nickname.toLowerCase().includes(this.search.toLowerCase()) || (data.ID == this.search) || (data.email == this.search))).length / 10;
+        if (ye > i) {
+          this.endye = true;
+        } else {
+          this.endye = false;
+
+        }
+      },
+      open2,
+      open4,
+      beforeUpdate() {
+        this.end(this.ye);
+        jiaohu.$emit("len", this.list.filter(data => !this.search || (data.name == this.search) || (data.ID == this.search) || (data.access == this.search)))
+        jiaohu.$on("ye", (ye) => {
+          this.ye = ye;
+        })
+      },
+    }
   }
 </script>
 
 <style scoped>
-
+  .el-add-button{
+    position: absolute;
+    top: 155px;
+    left: 225px;
+  }
 </style>
